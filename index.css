@@ -1,0 +1,185 @@
+@font-face {
+    font-family: 'BebasNeue';
+    src: url('./fonts/netflixsans/NetflixSansRegular.ttf');
+}
+@media(min-width: 800px) {
+    nav{
+        width:100vw;
+    }
+    nav .navdiv .logo{
+        height:2.5em;
+    }
+    nav .navdiv #menu800{
+        display:none;
+    }
+    
+
+    
+    .wallpaper .nomeEDescricao{
+        width: 40vw;
+    }
+    .wallpaper .nomeEDescricao h3{
+        font-size: 1.6vw;
+    }
+    .wallpaper .nomeEDescricao p{
+        font-size: 1.4vw;
+    }
+}
+@media(max-width:800px){
+    nav{
+        width:100vw;
+    }
+    nav .navdiv{
+        flex-direction: column;
+    }
+    nav .navdiv .logo{
+        height:5em;
+    }
+    nav .navdiv a{
+        font-size: 50px;
+    }
+    nav .navdiv #menu800{
+        font-size: 50px;
+        color: #56DEF3;
+
+    }
+    nav .navdiv .navA{
+        display: none;
+    }
+    
+    
+    .wallpaper .nomeEDescricao{
+        display: flex;
+        flex-direction: column;
+        width: 50vw;
+    }
+    .wallpaper .nomeEDescricao h3{
+        font-size: 4.6vw;
+    }
+    .wallpaper .nomeEDescricao p{
+        font-size: 3.2vw;
+    }
+}
+
+/*---------- animation de slice ----------------------------------*/
+*{
+    font-family: 'BebasNeue';
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+    color: white;
+}
+/*------------------------------- nav --------------------------------------*/
+
+nav{
+    display: flex;
+    justify-content: space-between;
+    padding: 15px 50px;
+    position: fixed;
+}
+
+nav .navdiv{
+    display: flex;
+}
+nav .navdiv .logo{
+    height: 2.5em;
+    padding-right: 25px;
+}
+nav .navdiv a{
+    padding: 10px;
+    color: rgb(228, 227, 227);
+    cursor: pointer;
+}
+nav .navdiv a:hover{
+    color: white;
+}
+
+
+.ver{
+    width: 55vw;
+    height:80vh;
+    position: absolute;
+    top: 6vh;
+    right: 0;
+}
+/*-----------------------logo ------------------------------------*/
+.wallpaper{
+    background-image: url('./nomeLogo/wallpaper.jpg');
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+}
+.wallpaper .nomeEDescricao{
+    padding: 20vh 10vw 41vh 50px;
+    text-shadow: 1px 1px black;
+    background: linear-gradient(90deg, rgba(0,0,0,0.706302503911721) 27%,
+    rgba(0,0,0,0.4429971817828694) 60%, rgba(0,212,255,0) 100%)
+}
+.wallpaper .nomeEDescricao img{
+    height: 7vw;
+}
+.wallpaper .nomeEDescricao h3{
+    padding-bottom: 10px;
+}
+.wallpaper .nomeEDescricao p{
+    padding-bottom: 25px;
+}
+.wallpaper .nomeEDescricao a{
+    text-shadow: none;
+    padding: 1.5vh 1.5vw;
+    border-radius: 5px;
+    background-color: white;
+    color: black;
+    margin-right: 10px;
+    font-size: 1.6rem;
+}
+.wallpaper .nomeEDescricao a:hover{
+    filter: opacity(0.7);
+}
+.wallpaper .nomeEDescricao .maisInfo{
+    background-color: rgba(66, 66, 66, 0.651);
+    color: white;
+}
+
+
+/*-----------------------------------------------------------------------------------------------------------------------------*/
+.h2All{
+    padding: 0 0 12px 50px;
+}
+.boxImg{
+    margin-right: 5px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.boxImg:hover{
+    border: 2px solid #56DEF3;
+}
+.boxNum{
+    margin-right: 5px;
+}
+.box, 
+.boxNum{
+    background-color: rgb(14, 14, 14);
+    padding: 2vw 0;
+    margin-top: -1vw;
+}
+.boxNum div{
+    display: flex;
+    scroll-behavior: smooth;
+}
+.boxDiv div{
+    display: flex;
+    align-items: center;
+}
+.boxDiv div h1{
+    display: flex;
+    color: #141414;
+    -webkit-text-stroke: 5px #56DEF3;
+    font-weight: 100;
+}
+.boxDiv div img{
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+
