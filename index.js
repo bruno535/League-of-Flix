@@ -1,178 +1,260 @@
-//nav black or none
-setInterval(() => { 
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    if(screen.width > 800){
-
-        if(window.scrollY != 0){
-
-            document.querySelector('#menu').style.backgroundColor = 'black'; 
-        }
-        else{
-
-            document.querySelector('#menu').style.background = "linear-gradient(180deg, rgba(0,0,0,0.6642856971890319) 5%,rgba(0,0,0,0.4429971817828694) 50%, rgba(0,212,255,0) 100%)";
-        }
-    }
-    if(screen.width < 800){
-
-        document.querySelector('#menu').style.backgroundColor = 'black'; 
-    }
-}, 100);
-
-//nav almentar
-function navA(){
-
-    if(document.querySelector('.navA').style.display == 'none'){
-
-        document.querySelector('.navA1').style.display = 'block';
-        document.querySelector('.navA2').style.display = 'block';
-        document.querySelector('.navA3').style.display = 'block';
-        document.querySelector('#menu').style.height = '30vh';
-    }
-    else{
-
-        document.querySelector('.navA1').style.display = 'none';
-        document.querySelector('.navA2').style.display = 'none';
-        document.querySelector('.navA3').style.display = 'none';
-        document.querySelector('#menu').style.height = '9vh';
-    }    
-} 
-
-//imagem de inicio
-function ImgInicio(){
-
-    document.querySelector('.wallpaper').style.backgroundImage = 'url(./nomeLogo/wallpaper.jpg)'
-    document.querySelector('.NomeLogo').src = './nomeLogo/logo.png';
-    document.querySelector('.ChampH3').textContent = 'Veja skins dos mains';
-    document.querySelector('.ChampP').textContent = 'Com skins dos champions que considero meus main(principais personagens), são do jogo League of Legends, um MMORPG que a anos continua bom.'
-    document.querySelector('.maisInfo').href = 'https://www.leagueoflegends.com/pt-br/champions';
-}
-
-
-//trocar descriçao
-function SwitchDes(champ, skin){
+    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="./OwlCarousel/dist/assets/owl.carousel.min.css">
     
-    document.querySelector('.NomeLogo').src = './nomeLogo/'+champ+'.png';
-    document.querySelector('.maisInfo').href = 'https://www.leagueoflegends.com/pt-br/champions/'+champ.toLowerCase()+'/';
+    <script src="./jquery.js"></script>
     
-    if(champ == 'Akali'){
+    <title>League of Flix</title>
+</head>
 
-        document.querySelector('.ChampH3').textContent = 'A Assassina Renegada';
-        document.querySelector('.ChampP').textContent = 'Abandonando a Ordem Kinkou e seu título de Punho das Sombras, Akali agora ataca sozinha, pronta para ser a arma mortal que seu povo precisa. Embora ela mantenha tudo o que aprendeu com seu mestre Shen, ela se comprometeu a defender Ionia de seus inimigos, um assassinato de cada vez. Akali pode atacar em silêncio, mas sua mensagem será ouvida em voz alta e clara: “Temam a assassina sem mestre”.'      
-        document.querySelector('.wallpaper').style.backgroundImage ='url(./akali/'+champ+'_0.jpg)';
-        document.querySelector('.skins').href = './akali/'+skin+'.jpg';
-    }
-    if(champ == 'Ezreal'){
-
-        document.querySelector('.ChampH3').textContent = 'O Explorador Pródigo';
-        document.querySelector('.ChampP').textContent = 'Um aventureiro arrojado, com um talento nato nas artes mágicas, Ezreal desbrava catacumbas soterradas, envolve-se com antigas maldições e supera com facilidade as situações mais improváveis. Sua coragem e ousadia não têm limites e ele prefere resolver as coisas no improviso, confiando parcialmente no seu talento, mas principalmente em sua mística luva shurimane, que ele usa para causar explosões arcanas devastadoras. Uma coisa é certa: quando Ezreal está por perto, lá vem problema. Ou lá vai. Ou já veio.'
-        document.querySelector('.wallpaper').style.backgroundImage ='url(./ezreal/'+champ+'_0.jpg)';             
-        document.querySelector('.skins').href = './ezreal/'+skin+'.jpg';              
-    }
-    if(champ == 'Katarina'){
-
-        document.querySelector('.ChampH3').textContent = 'A Lamina Sinístra';
-        document.querySelector('.ChampP').textContent = 'Decisiva em seus julgamentos e letal em combate, Katarina é a assassina de maior calibre de Noxus. Filha mais velha do lendário General Du Couteau, Katarina é reconhecida por seus assassinatos eficientes contra inimigos desavisados. Sua ambição ardente a levou a buscar alvos extremamente protegidos, mesmo correndo o risco de colocar seus aliados em perigo; mas não importa a missão, Katarina não hesita ao executar seu dever no meio de um furacão de adagas serrilhadas.'
-        document.querySelector('.wallpaper').style.backgroundImage ='url(./katarina/'+champ+'_0.jpg)';             
-        document.querySelector('.skins').href = './katarina/'+skin+'.jpg';
-    }
-    if(champ == 'Leblanc'){
-
-        document.querySelector('.ChampH3').textContent = 'A Farsante';
-        document.querySelector('.ChampP').textContent = 'Misteriosa mesmo para os outros membros da Rosa Negra, LeBlanc é somente um dos muitos nomes de uma mulher pálida que tem manipulado pessoas e eventos desde os primeiros dias de Noxus. Usando sua magia para espelhar a si mesma, a feiticeira pode aparecer para qualquer um, em qualquer lugar e mesmo em vários lugares ao mesmo tempo. Sempre planejando às escondidas, as verdadeiras motivações de LeBlanc são tão inescrutáveis quanto sua identidade inconstante.'
-        document.querySelector('.wallpaper').style.backgroundImage ='url(./leblanc/'+champ+'_0.jpg)';             
-        document.querySelector('.skins').href = './leblanc/'+skin+'.jpg';                  
-    }
-    if(champ == 'Lux'){
-
-        document.querySelector('.ChampH3').textContent = 'A Dama da Luz';
-        document.querySelector('.ChampP').textContent = 'Luxanna Stemmaguarda nasceu em Demacia, um reino insular onde habilidades mágicas são vistas com medo e desconfiança. Capaz de dobrar a luz à sua vontade, ela cresceu temendo ser descoberta e exilada, e foi forçada a manter seus poderes em segredo a fim de preservar o status de nobreza de sua família. Apesar de tudo, o otimismo e resiliência de Lux a levaram a aceitar seus talentos únicos e agora ela os utiliza em segredo a serviço de sua terra natal.';
-        document.querySelector('.wallpaper').style.backgroundImage ='url(./lux/'+champ+'_0.jpg)';       
-        document.querySelector('.skins').href = './lux/'+skin+'.jpg';             
-    }
-    if(champ == 'Lulu'){
-
-        document.querySelector('.ChampH3').textContent = 'A Fada';
-        document.querySelector('.ChampP').textContent = 'A maga yordle Lulu é conhecida por conjurar ilusões de sonhos e criaturas fantasiosas enquanto vaga por Runeterra com seu silfo companheiro, Pix. Lulu transforma a realidade por capricho, distorcendo o que ela vê como restrições desse banal reino físico. Apesar de alguns considerarem sua magia no mínimo anormal, e no máximo perigosa, ela acredita que todos merecem um toque de encanto.';
-        document.querySelector('.wallpaper').style.backgroundImage ='url(./lulu/'+champ+'_0.jpg)';       
-        document.querySelector('.skins').href = './lulu/'+skin+'.jpg';             
-    }
-    if(champ == 'Yasuo'){
-
-        document.querySelector('.ChampH3').textContent = 'O Imperdoável';
-        document.querySelector('.ChampP').textContent = 'Yasuo, um ioniano extremamente determinado, é também um ágil espadachim que usa o próprio ar como arma para enfrentar seus inimigos. Quando jovem, ele teve seu orgulho ferido ao ser acusado injustamente do assassinato de seu mestre — sem conseguir provar sua inocência, ele foi forçado a matar o próprio irmão para se defender. Até hoje, mesmo depois do verdadeiro assassino do seu mestre ter sido revelado, Yasuo ainda não consegue se perdoar e vaga por sua terra natal com apenas o vento para guiar sua espada.';
-        document.querySelector('.wallpaper').style.backgroundImage ='url(./yasuo/'+champ+'_0.jpg)';       
-        document.querySelector('.skins').href = './yasuo/'+skin+'.jpg';              
-    }
-    if(champ == 'Zed'){
-
-        document.querySelector('.ChampH3').textContent = 'O Mestre das Sombras';
-        document.querySelector('.ChampP').textContent = 'Absolutamente impiedoso e implacável, Zed é o líder da Ordem das Sombras; uma organização criada com a intenção de militarizar as tradições marciais e mágicas de Ionia para expulsar os invasores noxianos. Durante a guerra, o desespero o levou a libertar a forma secreta das sombras, uma magia espiritual malévola tão perigosa e manipuladora quanto poderosa. Zed dominou todas essas técnicas proibidas para destruir qualquer coisa que considerasse uma ameaça a sua nação, ou a sua nova ordem.';
-        document.querySelector('.wallpaper').style.backgroundImage ='url(./zed/'+champ+'_0.jpg)';       
-        document.querySelector('.skins').href = './zed/'+skin+'.jpg';              
-    }
-}
-
-
-//trocar imagens ao clicar
-function SwitchImg(champ,desc){
-
-    SwitchDes(desc, champ);
-
-    if(desc == 'Akali'){
-
+<body>
+    <!--------------------------------------------------------------------------------------------------------------------------------->
+    <nav id="menu">
         
-        document.querySelector('.wallpaper').style.backgroundImage ='url(./akali/'+champ+'.jpg)';
-    }
-    if(desc == 'Ezreal'){
+        <div class="navdiv">
 
-        document.querySelector('.wallpaper').style.backgroundImage ='url(./ezreal/'+champ+'.jpg)';
-    }
-    if(desc == 'Katarina'){
+            <img onclick="ImgInicio()" class="logo" style="cursor: pointer;" src="./nomeLogo/logo.png">
+            
+            <p id="menu800" onclick="navA()">Menu</p>
+            
+            <a class="navA navA1" onclick="ImgInicio()" href="#">Início</a>
+            <a class="navA navA2" href="https://universe.leagueoflegends.com/pt_BR/?_gl=1*ont4ek*_ga*MTE2NDg2MDY3My4xNjQ0NDE4NzYy*_ga_FXBJE5DEDD*MTY0NDQxODc2MC4xLjEuMTY0NDQyMjk0MS42MA..">Historia</a>
+            <a class="navA navA3" href="#Mains">Mains</a>
 
-        document.querySelector('.wallpaper').style.backgroundImage ='url(./katarina/'+champ+'.jpg)';
-    }
-    if(desc == 'Lux'){
+        </div>
 
-        document.querySelector('.wallpaper').style.backgroundImage ='url(./lux/'+champ+'.jpg)';
-    }
-    if(desc == 'Leblanc'){
+    </nav>
 
-        document.querySelector('.wallpaper').style.backgroundImage ='url(./leblanc/'+champ+'.jpg)';
-    }
-    if(desc == 'Lulu'){
 
-        document.querySelector('.wallpaper').style.backgroundImage ='url(./lulu/'+champ+'.jpg)';
-    }
-    if(desc == 'Yasuo'){
+    <!--------------------------------------------------------------------------------------------------------------------------------->
+    <div onmousemove="mouseMove(event)" onmouseout="mouseOut()" class="ver"></div> 
 
-        document.querySelector('.wallpaper').style.backgroundImage ='url(./yasuo/'+champ+'.jpg)';
-    }
-    if(desc == 'Zed'){
+    <div class="wallpaper">
+        
+        <div class="nomeEDescricao">
 
-        document.querySelector('.wallpaper').style.backgroundImage ='url(./zed/'+champ+'.jpg)';
-    }
+            <img class="NomeLogo" src="./nomeLogo/logo.png" alt="logo2">
 
-}
-//backgroundColor Azul inicial
-function Back(champ){
+            <h3 class="ChampH3">Veja skins dos mains</h3>
+            <p class="ChampP">Com skins dos champions que considero meus main(principais personagens), são do jogo League of Legends, um MMORPG que a anos continua bom.</p>
+            <a class="skins" >Baixar</a>
+            <a class="maisInfo" href="https://www.leagueoflegends.com/pt-br/champions">Mais informações</a>
+        </div>
+    </div>
 
-    document.querySelector('#'+champ).classList.add('backAzul');
 
-    setTimeout(() => {
+    <!-------------------------------------------------------------------------------------------------------------------------------->
+    <main>
 
-        document.querySelector('#'+champ).classList.remove('backAzul');
-    }, 2500);
-}
-// ver imagem 100%
-function mouseMove(event){
+        <!---------------  Top 10 ------------------>  
+        <div class="box" id="Mains">
 
-    document.querySelector('.box').style.display = 'none';
-    document.querySelector('.navdiv').style.display = 'none';
-    document.querySelector('.nomeEDescricao').style.marginLeft = '-1000px';
-}
-function mouseOut(){
-    
-    document.querySelector('.box').style.display = 'block';
-    document.querySelector('.navdiv').style.display = 'flex';
-    document.querySelector('.nomeEDescricao').style.marginLeft = '0';
-}
+            <h2 class="h2All">Top 10 Mains</h2>
+            
+            <div class="owl-carousel owl-theme">
+
+                <a href="#"><img onclick="SwitchImg('Akali_0', 'Akali')" class="boxImg" src="./akali/Akali_0.jpg" alt="Akali">
+                <a href="#"><img onclick="SwitchImg('Ezreal_0', 'Ezreal')" class="boxImg" src="./ezreal/Ezreal_0.jpg" alt="Ezreal"></a>
+                <a href="#"><img onclick="SwitchImg('Katarina_0', 'Katarina')" class="boxImg" src="./katarina/Katarina_0.jpg" alt="Katarina"></a>
+                <a href="#"><img onclick="SwitchImg('Lux_0', 'Lux')" class="boxImg" src="./lux/Lux_0.jpg" alt="Lux"></a>
+                <a href="#"><img onclick="SwitchImg('Leblanc_0', 'Leblanc')" class="boxImg" src="./leblanc/Leblanc_0.jpg" alt="Leblanc"></a>
+                <a href="#"><img onclick="SwitchImg('Lulu_0', 'Lulu')" class="boxImg" src="./lulu/Lulu_0 - Copia.jpg" alt="Lulu"></a>
+                <a href="#"><img onclick="SwitchImg('Yasuo_0', 'Yasuo')" class="boxImg" src="./yasuo/Yasuo_0.jpg" alt="Yasuo"></a>
+                <a href="#"><img onclick="SwitchImg('Zed_0', 'Zed')" class="boxImg" src="./zed/Zed_0.jpg" alt="Zed"></a>
+                <a href="#"><img onclick="SwitchImg('Akali_7', 'Akali')" class="boxImg" src="./akali/" alt="akali"></a>
+                <a href="#"><img onclick="SwitchImg('Akali_8', 'Akali')" class="boxImg" src="./akali//Akali_8.jpg" alt="akali"></a>
+                <a href="#"><img onclick="SwitchImg('Akali_9', 'Akali')" class="boxImg" src="./akali//Akali_9.jpg" alt="akali"></a>
+                <a href="#"><img onclick="SwitchImg('Akali_10', 'Akali')" class="boxImg" src="./akali//Akali_10.jpg" alt="Akali"></a>
+            </div>
+        </div>
+
+        <!-------------  Akali ---------------->
+        <div class="box" id="Akali">
+
+            <h2 class="h2All">Akali - A Assassina Renegada</h2>
+            
+            <div class="owl-carousel owl-theme">
+
+                <a href="#"><img onclick="SwitchImg('Akali_10', 'Akali')" class="boxImg" src="./akali/Akali_10.jpg" alt="Akali">
+                <a href="#"><img onclick="SwitchImg('Akali_0', 'Akali')" class="boxImg" src="./akali/Akali_0.jpg" alt="akali"></a>
+                <a href="#"><img onclick="SwitchImg('Akali_1', 'Akali')" class="boxImg" src="./akali/Akali_1.jpg" alt="akali"></a>
+                <a href="#"><img onclick="SwitchImg('Akali_2', 'Akali')" class="boxImg" src="./akali/Akali_2.jpg" alt="akali"></a>
+                <a href="#"><img onclick="SwitchImg('Akali_3', 'Akali')" class="boxImg" src="./akali/Akali_3.jpg" alt="akali"></a>
+                <a href="#"><img onclick="SwitchImg('Akali_4', 'Akali')" class="boxImg" src="./akali/Akali_4.jpg" alt="akali"></a>
+                <a href="#"><img onclick="SwitchImg('Akali_5', 'Akali')" class="boxImg" src="./akali/Akali_5.jpg" alt="akali"></a>
+                <a href="#"><img onclick="SwitchImg('Akali_6', 'Akali')" class="boxImg" src="./akali/Akali_6.jpg" alt="akali"></a>
+                <a href="#"><img onclick="SwitchImg('Akali_7', 'Akali')" class="boxImg" src="./akali/Akali_7.jpg" alt="akali"></a>
+                <a href="#"><img onclick="SwitchImg('Akali_8', 'Akali')" class="boxImg" src="./akali/Akali_8.jpg" alt="akali"></a>
+                <a href="#"><img onclick="SwitchImg('Akali_9', 'Akali')" class="boxImg" src="./akali/Akali_9.jpg" alt="akali"></a>
+                <a href="#"><img onclick="SwitchImg('Akali_10', 'Akali')" class="boxImg" src="./akali/Akali_10.jpg" alt="Akali"></a>
+            </div>
+        </div>
+
+        <!------------  Ezreal ----------------->
+        <div class="box" id="Ezreal">
+
+            <h2 class="h2All">Ezreal - O Explorador Pródigo</h2>
+            
+            <div class="owl-carousel owl-theme"> 
+
+                <a href="#"><img onclick="SwitchImg('Ezreal_0','Ezreal')" class="boxImg" src="./ezreal/Ezreal_0.jpg" alt="Ezreal"></a>
+                <a href="#"><img onclick="SwitchImg('Ezreal_1','Ezreal')" class="boxImg" src="./ezreal/Ezreal_1.jpg" alt="Ezreal"></a>
+                <a href="#"><img onclick="SwitchImg('Ezreal_2','Ezreal')" class="boxImg" src="./ezreal/Ezreal_2.jpg" alt="Ezreal"></a>
+                <a href="#"><img onclick="SwitchImg('Ezreal_3','Ezreal')" class="boxImg" src="./ezreal/Ezreal_3.jpg" alt="Ezreal"></a>
+                <a href="#"><img onclick="SwitchImg('Ezreal_4','Ezreal')" class="boxImg" src="./ezreal/Ezreal_4.jpg" alt="Ezreal"></a>
+                <a href="#"><img onclick="SwitchImg('Ezreal_5','Ezreal')" class="boxImg" src="./ezreal/Ezreal_5.jpg" alt="Ezreal"></a>
+                <a href="#"><img onclick="SwitchImg('Ezreal_6','Ezreal')" class="boxImg" src="./ezreal/Ezreal_6.jpg" alt="Ezreal"></a>
+                <a href="#"><img onclick="SwitchImg('Ezreal_7','Ezreal')" class="boxImg" src="./ezreal/Ezreal_7.jpg" alt="Ezreal"></a>
+                <a href="#"><img onclick="SwitchImg('Ezreal_8','Ezreal')" class="boxImg" src="./ezreal/Ezreal_8.jpg" alt="Ezreal"></a>
+                <a href="#"><img onclick="SwitchImg('Ezreal_9','Ezreal')" class="boxImg" src="./ezreal/Ezreal_9.jpg" alt="Ezreal"></a>
+                <a href="#"><img onclick="SwitchImg('Ezreal_10','Ezreal')" class="boxImg" src="./ezreal/Ezreal_10.jpg" alt="Ezreal"></a>
+                <a href="#"><img onclick="SwitchImg('Ezreal_1','Ezreal')" class="boxImg" src="./ezreal/Ezreal_1.jpg" alt="Ezreal"></a>
+            </div>
+        </div>
+
+        <!---------------- Katarina -------------->
+        <div class="box" id="Katarina">
+
+            <h2 class="h2All">Katarina - A Lamina Sínistra</h2>
+            
+            <div class="owl-carousel owl-theme"> 
+
+                <a href="#"><img onclick="SwitchImg('Katarina_0','Katarina')" class="boxImg" src="./katarina/Katarina_0.jpg" alt="Katarina"></a>
+                <a href="#"><img onclick="SwitchImg('Katarina_1','Katarina')" class="boxImg" src="./katarina/Katarina_1.jpg" alt="Katarina"></a>
+                <a href="#"><img onclick="SwitchImg('Katarina_2','Katarina')" class="boxImg" src="./katarina/Katarina_2.jpg" alt="Katarina"></a>
+                <a href="#"><img onclick="SwitchImg('Katarina_3','Katarina')" class="boxImg" src="./katarina/Katarina_3.jpg" alt="Katarina"></a>
+                <a href="#"><img onclick="SwitchImg('Katarina_4','Katarina')" class="boxImg" src="./katarina/Katarina_4.jpg" alt="Katarina"></a>
+                <a href="#"><img onclick="SwitchImg('Katarina_5','Katarina')" class="boxImg" src="./katarina/Katarina_5.jpg" alt="Katarina"></a>
+                <a href="#"><img onclick="SwitchImg('Katarina_6','Katarina')" class="boxImg" src="./katarina/Katarina_6.jpg" alt="Katarina"></a>
+                <a href="#"><img onclick="SwitchImg('Katarina_7','Katarina')" class="boxImg" src="./katarina/Katarina_7.jpg" alt="Katarina"></a>
+                <a href="#"><img onclick="SwitchImg('Katarina_8','Katarina')" class="boxImg" src="./katarina/Katarina_8.jpg" alt="Katarina"></a>
+                <a href="#"><img onclick="SwitchImg('Katarina_9','Katarina')" class="boxImg" src="./katarina/Katarina_9.jpg" alt="Katarina"></a>
+                <a href="#"><img onclick="SwitchImg('Katarina_10','Katarina')" class="boxImg" src="./katarina/Katarina_10.jpg" alt="Katarina"></a>
+                <a href="#"><img onclick="SwitchImg('Katarina_1','Katarina')" class="boxImg" src="./katarina/Katarina_1.jpg" alt="Katarina"></a>
+            </div>
+        </div>
+
+        <!--------------- Lux -------------------->
+        <div class="box" id="Lux">
+
+            <h2 class="h2All">Lux - A Dama da Luz</h2>
+            
+            <div class="owl-carousel owl-theme"> 
+
+                <a href="#"><img onclick="SwitchImg('Lux_0','Lux')" class="boxImg" src="./lux/Lux_0.jpg" alt="Lux">
+                <a href="#"><img onclick="SwitchImg('Lux_1','Lux')" class="boxImg" src="./lux/Lux_1.jpg" alt="Lux"></a>
+                <a href="#"><img onclick="SwitchImg('Lux_2','Lux')" class="boxImg" src="./lux/Lux_2.jpg" alt="Lux"></a>
+                <a href="#"><img onclick="SwitchImg('Lux_3','Lux')" class="boxImg" src="./lux/Lux_3.jpg" alt="Lux"></a>
+                <a href="#"><img onclick="SwitchImg('Lux_4','Lux')" class="boxImg" src="./lux/Lux_4.jpg" alt="Lux"></a>
+                <a href="#"><img onclick="SwitchImg('Lux_5','Lux')" class="boxImg" src="./lux/Lux_5.jpg" alt="Lux"></a>
+                <a href="#"><img onclick="SwitchImg('Lux_6','Lux')" class="boxImg" src="./lux/Lux_6.jpg" alt="Lux"></a>
+                <a href="#"><img onclick="SwitchImg('Lux_7','Lux')" class="boxImg" src="./lux/Lux_7.jpg" alt="Lux"></a>
+                <a href="#"><img onclick="SwitchImg('Lux_8','Lux')" class="boxImg" src="./lux/Lux_8.jpg" alt="Lux"></a>
+                <a href="#"><img onclick="SwitchImg('Lux_9','Lux')" class="boxImg" src="./lux/Lux_9.jpg" alt="Lux"></a>
+                <a href="#"><img onclick="SwitchImg('Lux_10','Lux')" class="boxImg" src="./lux/Lux_10.jpg" alt="Lux"></a>
+                <a href="#"><img onclick="SwitchImg('Lux_1','Lux')" class="boxImg" src="./lux/Lux_1.jpg" alt="Lux"></a>
+            </div>
+        </div>
+
+        <!---------------- Leblanc ----------------->
+        <div class="box" id="Leblanc">
+
+            <h2 class="h2All">LeBlanc - A Farsante</h2>
+            
+            <div class="owl-carousel owl-theme">
+
+                <a href="#"><img onclick="SwitchImg('Leblanc_0','Leblanc')" class="boxImg" src="./leblanc/Leblanc_0.jpg" alt="Leblanc"></a>
+                <a href="#"><img onclick="SwitchImg('Leblanc_1','Leblanc')" class="boxImg" src="./leblanc/Leblanc_1.jpg" alt="Leblanc"></a>
+                <a href="#"><img onclick="SwitchImg('Leblanc_2','Leblanc')" class="boxImg" src="./leblanc/Leblanc_2.jpg" alt="Leblanc"></a>
+                <a href="#"><img onclick="SwitchImg('Leblanc_3','Leblanc')" class="boxImg" src="./leblanc/Leblanc_3.jpg" alt="Leblanc"></a>
+                <a href="#"><img onclick="SwitchImg('Leblanc_4','Leblanc')" class="boxImg" src="./leblanc/Leblanc_4.jpg" alt="Leblanc"></a>
+                <a href="#"><img onclick="SwitchImg('Leblanc_5','Leblanc')" class="boxImg" src="./leblanc/Leblanc_5.jpg" alt="Leblanc"></a>
+                <a href="#"><img onclick="SwitchImg('Leblanc_6','Leblanc')" class="boxImg" src="./leblanc/Leblanc_6.jpg" alt="Leblanc"></a>
+                <a href="#"><img onclick="SwitchImg('Leblanc_7','Leblanc')" class="boxImg" src="./leblanc/Leblanc_7.jpg" alt="Leblanc"></a>
+                <a href="#"><img onclick="SwitchImg('Leblanc_8','Leblanc')" class="boxImg" src="./leblanc/Leblanc_8.jpg" alt="Leblanc"></a>
+                <a href="#"><img onclick="SwitchImg('Leblanc_9','Leblanc')" class="boxImg" src="./leblanc/Leblanc_9.jpg" alt="Leblanc"></a>
+                <a href="#"><img onclick="SwitchImg('Leblanc_10','Leblanc')" class="boxImg" src="./leblanc/Leblanc_10.jpg" alt="Leblanc"></a>
+                <a href="#"><img onclick="SwitchImg('Leblanc_1','Leblanc')" class="boxImg" src="./leblanc/Leblanc_1.jpg" alt="Leblanc"></a>                
+            </div>
+        </div>
+
+        <!-------------------- Lulu ---------------->
+        <div class="box" id="Lulu">
+
+            <h2 class="h2All">Lulu - A Fada Feiticeira</h2>
+            
+            <div class="owl-carousel owl-theme">
+
+                <a href="#"><img onclick="SwitchImg('Lulu_0','Lulu')" class="boxImg" src="./lulu/Lulu_0.jpg" alt="Lulu"></a>
+                <a href="#"><img onclick="SwitchImg('Lulu_1','Lulu')" class="boxImg" src="./lulu/Lulu_1.jpg" alt="Lulu"></a>
+                <a href="#"><img onclick="SwitchImg('Lulu_2','Lulu')" class="boxImg" src="./lulu/Lulu_2.jpg" alt="Lulu"></a>
+                <a href="#"><img onclick="SwitchImg('Lulu_3','Lulu')" class="boxImg" src="./lulu/Lulu_3.jpg" alt="Lulu"></a>
+                <a href="#"><img onclick="SwitchImg('Lulu_4','Lulu')" class="boxImg" src="./lulu/Lulu_4.jpg" alt="Lulu"></a>
+                <a href="#"><img onclick="SwitchImg('Lulu_5','Lulu')" class="boxImg" src="./lulu/Lulu_5.jpg" alt="Lulu"></a>
+                <a href="#"><img onclick="SwitchImg('Lulu_6','Lulu')" class="boxImg" src="./lulu/Lulu_6.jpg" alt="Lulu"></a>
+                <a href="#"><img onclick="SwitchImg('Lulu_7','Lulu')" class="boxImg" src="./lulu/Lulu_7.jpg" alt="Lulu"></a>
+                <a href="#"><img onclick="SwitchImg('Lulu_8','Lulu')" class="boxImg" src="./lulu/Lulu_8.jpg" alt="Lulu"></a>
+                <a href="#"><img onclick="SwitchImg('Lulu_9','Lulu')" class="boxImg" src="./lulu/Lulu_9.jpg" alt="Lulu"></a>
+                <a href="#"><img onclick="SwitchImg('Lulu_10','Lulu')" class="boxImg" src="./lulu/Lulu_10.jpg" alt="Lulu"></a>
+                <a href="#"><img onclick="SwitchImg('Lulu_1','Lulu')" class="boxImg" src="./lulu/Lulu_1.jpg" alt="Lulu"></a>                
+            </div>
+        </div>
+
+        <!-------------------- Yasuo ---------------->
+        <div class="box" id="Yasuo">
+
+            <h2 class="h2All">Yasuo - O Imperdoável</h2>
+            
+            <div class="owl-carousel owl-theme">
+
+                <a href="#"><img onclick="SwitchImg('Yasuo_0','Yasuo')" class="boxImg" src="./yasuo/Yasuo_0.jpg" alt="Yasuo"></a>
+                <a href="#"><img onclick="SwitchImg('Yasuo_1','Yasuo')" class="boxImg" src="./yasuo/Yasuo_1.jpg" alt="Yasuo"></a>
+                <a href="#"><img onclick="SwitchImg('Yasuo_2','Yasuo')" class="boxImg" src="./yasuo/Yasuo_2.jpg" alt="Yasuo"></a>
+                <a href="#"><img onclick="SwitchImg('Yasuo_3','Yasuo')" class="boxImg" src="./yasuo/Yasuo_3.jpg" alt="Yasuo"></a>
+                <a href="#"><img onclick="SwitchImg('Yasuo_4','Yasuo')" class="boxImg" src="./yasuo/Yasuo_4.jpg" alt="Yasuo"></a>
+                <a href="#"><img onclick="SwitchImg('Yasuo_5','Yasuo')" class="boxImg" src="./yasuo/Yasuo_5.jpg" alt="Yasuo"></a>
+                <a href="#"><img onclick="SwitchImg('Yasuo_6','Yasuo')" class="boxImg" src="./yasuo/Yasuo_6.jpg" alt="Yasuo"></a>
+                <a href="#"><img onclick="SwitchImg('Yasuo_7','Yasuo')" class="boxImg" src="./yasuo/Yasuo_7.jpg" alt="Yasuo"></a>
+                <a href="#"><img onclick="SwitchImg('Yasuo_8','Yasuo')" class="boxImg" src="./yasuo/Yasuo_8.jpg" alt="Yasuo"></a>
+                <a href="#"><img onclick="SwitchImg('Yasuo_9','Yasuo')" class="boxImg" src="./yasuo/Yasuo_9.jpg" alt="Yasuo"></a>
+                <a href="#"><img onclick="SwitchImg('Yasuo_10','Yasuo')" class="boxImg" src="./yasuo/Yasuo_10.jpg" alt="Yasuo"></a>
+                <a href="#"><img onclick="SwitchImg('Yasuo_1','Yasuo')" class="boxImg" src="./yasuo/Yasuo_1.jpg" alt="Yasuo"></a>                
+            </div>
+        </div>
+
+        <!-------------------- Zed ---------------->
+        <div class="box" id="Zed">
+
+            <h2 class="h2All">Zed - O Mestre das Sombras</h2>
+            
+            <div class="owl-carousel owl-theme">
+
+                <a href="#"><img onclick="SwitchImg('Zed_0','Zed')" class="boxImg" src="./zed/Zed_0.jpg" alt="Zed"></a>
+                <a href="#"><img onclick="SwitchImg('Zed_1','Zed')" class="boxImg" src="./zed/Zed_1.jpg" alt="Zed"></a>
+                <a href="#"><img onclick="SwitchImg('Zed_2','Zed')" class="boxImg" src="./zed/Zed_2.jpg" alt="Zed"></a>
+                <a href="#"><img onclick="SwitchImg('Zed_3','Zed')" class="boxImg" src="./zed/Zed_3.jpg" alt="Zed"></a>
+                <a href="#"><img onclick="SwitchImg('Zed_4','Zed')" class="boxImg" src="./zed/Zed_4.jpg" alt="Zed"></a>
+                <a href="#"><img onclick="SwitchImg('Zed_5','Zed')" class="boxImg" src="./zed/Zed_5.jpg" alt="Zed"></a>
+                <a href="#"><img onclick="SwitchImg('Zed_6','Zed')" class="boxImg" src="./zed/Zed_6.jpg" alt="Zed"></a>
+                <a href="#"><img onclick="SwitchImg('Zed_7','Zed')" class="boxImg" src="./zed/Zed_7.jpg" alt="Zed"></a>
+                <a href="#"><img onclick="SwitchImg('Zed_8','Zed')" class="boxImg" src="./zed/Zed_8.jpg" alt="Zed"></a>
+                <a href="#"><img onclick="SwitchImg('Zed_9','Zed')" class="boxImg" src="./zed/Zed_9.jpg" alt="Zed"></a>
+                <a href="#"><img onclick="SwitchImg('Zed_0','Zed')" class="boxImg" src="./zed/Zed_0.jpg" alt="Zed"></a>
+                <a href="#"><img onclick="SwitchImg('Zed_1','Zed')" class="boxImg" src="./zed/Zed_1.jpg" alt="Zed"></a>                
+            </div>
+        </div>
+    </main>
+
+
+    <script src="./index.js"></script>
+    <script src="./carrolsel.js"></script>
+    <script src="./OwlCarousel/dist/owl.carousel.js"></script>
+    <script src="./OwlCarousel/dist/owl.carousel.min.js"></script>
+</body>
+</html>
